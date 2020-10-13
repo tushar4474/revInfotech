@@ -1,0 +1,18 @@
+#second{
+  background-image:linear-gradient(rgba(14, 13, 62, 0.8),
+	rgba(5, 3, 46, 0.8)), url(../../assets/pexels-fwstudio-172277.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height:70rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: -35px;
+}
+pagination-controls{
+  color: aliceblue;
+}
+.box{
+  position: absolute;
+  top: 40%;
+  padding: 15px 20px;
+}

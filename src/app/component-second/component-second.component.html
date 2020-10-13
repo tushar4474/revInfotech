@@ -1,0 +1,58 @@
+<section id="second">
+
+<div style="margin-left: 2rem;margin-top:2rem ;">
+  <select [(ngModel)]="selected" class="box" (ngModelChange)="onSelect(selected)">
+    <option selected [ngValue]="null">choose..</option>
+      <option *ngFor="let option of options"
+              [value]="option">
+        {{ option }}
+      </option>
+ </select>
+</div>
+<p></p>
+<div>Selected Option</div>
+<div>{{ selected }}</div>
+
+
+<div class="container">
+  <table class="table table-bordered bg-dark text-white text-center" style="font-size: x-large;">
+    <tr class="bg-danger">
+<!-- <th>Value</th> -->
+<th>id</th>
+<th>city</th>
+<th>address</th>
+<th>branch</th>
+
+</tr>
+
+<tr *ngFor="let x of selectedData | paginate: { id:'some_id',
+itemsPerPage:10,
+currentPage:page,
+totalItems: totalRecords}">
+  <!-- <td>{{x?.value}}</td> -->
+  <td>{{x?.id}}</td>
+  <td>{{x?.city}}</td>
+  <td>{{x?.address}}</td>
+  <td>{{x?.branch}}</td>
+
+</tr>
+</table>
+<div>
+<pagination-controls  id="some_id"
+                      (pageChange)="page=($event)"
+                      (pageBoundsCorrection)="page=($event)"
+                      maxSize="10"
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page">
+</pagination-controls>
+</div>
+
+</div>
+
+</section>

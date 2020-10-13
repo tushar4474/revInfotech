@@ -1,0 +1,15 @@
+#directives{
+  background-image:linear-gradient(rgba(14, 13, 62, 0.8),
+	rgba(5, 3, 46, 0.8)), url(../../assets/pexels-fwstudio-172277.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height:74rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: -17px;
+}
+h1{
+  margin-top: 6rem;
+  color: aliceblue;
+  text-align: center;
+}
