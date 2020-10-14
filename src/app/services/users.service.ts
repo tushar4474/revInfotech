@@ -14,18 +14,5 @@ export class UsersService {
      return this.http.get<any>(url);
   }
 
-  getDataofCity2():Observable<any>{
-    const url = 'https://vast-shore-74260.herokuapp.com/banks?';
-    return this.http.get<any>(url+'city=PUNE');
- }
 
- getDataofCity3():Observable<any>{
-  const url = 'https://vast-shore-74260.herokuapp.com/banks?';
-  return this.http.get<any>(url+'city=MUMBAI');
-}
-
-getDataofCity4():Observable<any>{
-  const url = 'https://vast-shore-74260.herokuapp.com/banks?';
-  return this.http.get<any>(url+'city=GURGAON');
-}
 }
