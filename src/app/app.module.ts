@@ -10,6 +10,8 @@ import { ComponentThirdComponent } from './component-third/component-third.compo
 import { UserDirective } from './directives/user.directive';
 import { ComponentSecondComponent } from './component-second/component-second.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {HttpClientModule} from '@angular/common/http';
+import { UsersService } from './services/users.service';
 
 
 @NgModule({
@@ -26,10 +28,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

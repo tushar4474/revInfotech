@@ -1,75 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services/users.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-component-second',
   templateUrl: './component-second.component.html',
   styleUrls: ['./component-second.component.css']
 })
-export class ComponentSecondComponent {
+export class ComponentSecondComponent implements OnInit {
 
-  city;
-  dselect:number;
-  page: number = 1;
-  totalRecords:number;
+  data:Array<any>;
+  dataCityTwo:Array<any>;
+  dataCityThree:Array<any>;
+  dataCityFour:Array<any>;
 
-
-
-  someData = [
-    { value: 'Delhi',id:'123',city:'Pune',address:'Pune',branch:'Pune branch'},
-          { value: 'Delhi',id:'13',city:'Delhi',address:'Delhi',branch:'Delhi branch'},
-          { value: 'Pune',id:'123',city:'Pune',address:'Pune',branch:'Pune branch'},
-          { value: 'Pune',id:'123',city:'Pune',address:'Pune',branch:'Pune branch'},
-          { value: 'Delhi',id:'13',city:'Delhi',address:'Delhi',branch:'Delhi branch'},
-          { value: 'Pune',id:'123',city:'Pune',address:'Pune',branch:'Pune branch'},
-          { value: 'Pune',id:'34',city:'Pune',address:'Pune',branch:'Pune branch'},
-          { value: 'Delhi',id:'13',city:'Delhi',address:'Delhi',branch:'Delhi branch'},
-          { value: 'Delhi',id:'13',city:'Delhi',address:'Delhi',branch:'Delhi branch'},
-          { value: 'Pune',id:'123',city:'Pune',address:'Pune',branch:'Pune branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Mumbai',id:'113',city:'Mumbai',address:'Mumbai',branch:'Mumbai branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'},
-          { value: 'Gurgaon',id:'113',city:'Gurgaon',address:'Gurgaon',branch:'Gurgaon branch'}];
-
-
-
-
-
-options =['Delhi', 'Pune','Gurgaon','Mumbai']
-
-selected;
-selectedData;
-
-constructor(){
-  this.selectedData = this.someData;
+constructor(private user:UsersService){
+ this.data = new Array<any>();
+ this.dataCityTwo = new Array<any>();
+}
+ngOnInit(){
+ this.getAll();
+}
+getAll(){
+  this.user.getData().subscribe((data) => {
+    console.log(data);
+    this.data = data;
+  })
 }
 
-
-
-onSelect(val){
-  console.log(val);
-  this.selectedData = this.someData.filter(x => x.value == val)
-}
 
 
 }

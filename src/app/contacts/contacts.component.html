@@ -45,7 +45,7 @@
       <span *ngIf="!signupform.get('icode').valid && signupform.get('icode').touched" class="help-block">Please enter a valid ifsc code </span>
     </div>
 
-    <button class="btn btn-primary butn">Submit</button>
+    <button class="btn btn-primary butn" [disabled]="!signupform.valid">Submit</button>
   </form>
 </div>
 </section>
