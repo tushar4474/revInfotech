@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
-import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-component-second',
@@ -17,9 +17,14 @@ export class ComponentSecondComponent implements OnInit {
 constructor(private user:UsersService){
  this.data = new Array<any>();
  this.dataCityTwo = new Array<any>();
+ this.dataCityThree= new Array<any>();
+ this.dataCityFour = new Array<any>();
 }
 ngOnInit(){
  this.getAll();
+ this.getAll2();
+ this.getAll3();
+ this.getAll4();
 }
 getAll(){
   this.user.getData().subscribe((data) => {
@@ -28,6 +33,24 @@ getAll(){
   })
 }
 
+getAll2(){
+  this.user.getData().subscribe((data) => {
+    console.log(data);
+    this.dataCityTwo = data;
+  })
+}
 
+getAll3(){
+  this.user.getData().subscribe((data) => {
+    console.log(data);
+    this.dataCityThree = data;
+  })
+}
 
+getAll4(){
+  this.user.getData().subscribe((data) => {
+    console.log(data);
+    this.dataCityFour = data;
+  })
+}
 }
